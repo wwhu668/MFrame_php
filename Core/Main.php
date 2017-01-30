@@ -8,10 +8,11 @@ class Main
     public $assign;
     public static function run()
     {
+        // url路由的调用
         $route = new Route();
         $controller = $route->controller;
         $action = $route->action;
-        $controllerPath = 'APP\\Controllers\\' . $controller . 'Controller';
+        $controllerPath = CONTROLLER_SPACE . '\\' . $controller . 'Controller';
         $ControllerObj = new $controllerPath();
         $ControllerObj->$action();
     }

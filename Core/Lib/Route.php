@@ -2,6 +2,8 @@
 
 namespace Core\Lib;
 
+use Core\Lib\Conf;
+
 class Route
 {
     public $controller;
@@ -14,9 +16,8 @@ class Route
         //获取控制器和方法
         $requestUri = $_SERVER['REQUEST_URI'];
         $params = explode('/', $requestUri);
-
-        $this->controller = !empty($params[1]) ? ucfirst($params[1]) : 'Index';
-        $this->action = isset($params[2]) ? $params[2] : 'index';
+        $this->controller = !empty($params[1]) ? ucfirst($params[1]) : Conf::get('route', 'CONTROLLER');
+        $this->action = isset($params[2]) ? $params[2] : Conf::get('route', 'ACTION');
         //获取参数
         $count = count($params);
         for($i = 3; $i < $count; $i += 2) {

@@ -9,7 +9,8 @@
 define('IMOOC', realpath('./'));
 define('CORE', IMOOC.'/Core');
 define('APP', IMOOC.'/App');
-define('CONFIG_DIR', IMOOC.'core/config');
+define('CONFIG_DIR', IMOOC.'/Core/config');
+define('CONTROLLER_SPACE', 'App\Controllers');
 define('DEBUG', true);
 
 // 自动载入
