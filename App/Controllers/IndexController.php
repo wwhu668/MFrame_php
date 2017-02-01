@@ -9,7 +9,7 @@ class IndexController extends Main
 {
     function index()
     {
-        $route = \core\lib\Conf::get('route');
+        // $route = \core\lib\Conf::get('route');
         new Model();
         $data = 'Hello World';
         $this->assign('data', $data);
