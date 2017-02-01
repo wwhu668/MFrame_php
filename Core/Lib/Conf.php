@@ -23,7 +23,6 @@ class Conf
             $file = CONFIG_DIR . '/' . $name . '.php';
             // 没有找到配置文件就返回false
             if (!is_file($file)) {
-                echo 1;
                 return false;
             }
             self::$confings[$name] = include $file;

@@ -2,19 +2,14 @@
 
 namespace Core\Lib;
 
-use PDO;
+use Medoo;
 use Core\Lib\Conf;
 
-class Model extends PDO
+class Model extends Medoo
 {
     public function __construct()
     {
-        $database = Conf::get('databases');
-        try {
-            parent::__construct($database['DSN'], $database['USERNAME'], $database['PASSWD']);
-        } catch (\Exception $e) {
-            P($e->getMessage());
-        }
-
+        $option = Conf::get('databases');
+        parent::__construct($option);
     }
 }
