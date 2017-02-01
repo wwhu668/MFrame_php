@@ -42,7 +42,7 @@ class Main
                 'debug' => DEBUG
             ]);
             $template = $twig->loadTemplate($fname);
-            $template->display($this->assign ? $this->assign:'');
+            $template->display($this->assign ? $this->assign : []);
         }
     }
 }
