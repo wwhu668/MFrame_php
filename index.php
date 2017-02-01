@@ -18,12 +18,16 @@ spl_autoload_extensions('.php');
 set_include_path(get_include_path() . 'PATH_SEPARATOR'. IMOOC);
 spl_autoload_register();
 
+include "vendor/autoload.php";
+
 if (DEBUG) {
+    $whoops = new \Whoops\Run;
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+    $whoops->register();
     ini_set('display_errors', "On");
 } else {
     ini_set('display_errors', 'Off');
 }
-
 include CORE . '/common/function.php';
 // include CORE . '/imooc.php';
 try {
